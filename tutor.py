@@ -29,3 +29,21 @@ def chat(messages):
         messages=messages
     )
     return response.choices[0].message.content
+
+
+def get_response(conversation_history, user_message):
+    conversation_history.append({
+        "role": "user",
+        "content": user_message
+    })
+    
+    messages = [{"role": "system", "content": SYSTEM_PROMPT}] + conversation_history
+    
+    response = chat(messages)
+    
+    conversation_history.append({
+        "role": "assistant",
+        "content": response
+    })
+    
+    return response, conversation_history
