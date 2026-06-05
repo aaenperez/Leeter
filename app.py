@@ -15,8 +15,9 @@ if "session_active" not in st.session_state:
     st.session_state.session_active = False
 
 # --- Input Section ---
-problem = st.text_area("Paste the problem statement here", height=200)
-code = st.text_area("Paste your code attempt here", height=200)
+st.set_page_config(page_title="Leeter", layout="wide")
+problem = st.text_area("Paste the problem statement here", height=300)
+code = st.text_area("Paste your code attempt here", height=400)
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
